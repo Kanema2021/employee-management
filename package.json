@@ -1,0 +1,25 @@
+{
+  "name": "employee-management",
+  "version": "1.0.0",
+  "description": "# employment-management-system Homework 12",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kanema2021/employee-management.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kanema2021/employee-management/issues"
+  },
+  "homepage": "https://github.com/Kanema2021/employee-management#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.1.2",
+    "mysql2": "^2.3.0"
+  }
+}
