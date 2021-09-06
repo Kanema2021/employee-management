@@ -1,7 +1,5 @@
 const mysql2 = require("mysql2");
 const inquirer = require("inquirer");
-// const consoleTable = require("console.table");
-// const query = require("mysql2/typings/mysql/lib/protocol/sequences/Query");
 
 const connection = mysql2.createConnection ({
     host: "localhost",
@@ -24,14 +22,13 @@ const showOptions = async () => {
             choices: [
                   "View all Employees", 
                   "View all Departments", 
-                  "view all Roles", 
+                  "View all Roles", 
                   "Add a Role", 
                   "Add an Employee", 
                   "Update Employee's Role"
                 ]    
     })
      
-// .then(function(response){
     switch(response.mainOptions) {
         case "View all Employees":
          viewAllEmployees()
@@ -72,11 +69,7 @@ const showOptions = async () => {
     };
 }
 
-
-
-
 const viewAllEmployees = async () => {
-// console.log("View all Employees");
 try {
     let query = "SELECT * FROM employee";
     connection.query(query, function (err, data) {
@@ -86,15 +79,13 @@ try {
         console.table(empArr);
         showOptions();
     })
-} catch (err) {
-    console.log (err);
-    showOptions();
+    } catch (err) {
+        console.log (err);
+        showOptions();
 }
-
 }
 
 const viewAllDepartments = async () => {
-    // console.log("View all Employees");
     try {
         let query = "SELECT * FROM department";
         connection.query(query, function (err, data) {
@@ -107,36 +98,202 @@ const viewAllDepartments = async () => {
     } catch (err) {
         console.log (err);
         showOptions();
-    }
+    } 
+};
+
+const viewAllRoles = async () => {
+    try {
+        let query = "SELECT * FROM roles";
+        connection.query(query, function (err, data) {
+            if (err) throw err;
+            let roleArr = [];
+            data.forEach(roles => roleArr.push(roles))
+            console.table(roleArr);
+            showOptions();
+        })
+    } catch (err) {
+        console.log (err);
+        showOptions();
+    } 
+};
+
+const addEmployees = () => {
+    inquirer.prompt ({
+        name: "addEmployee",
+        type: "input",
+        message: "Please enter new employee's full name."
+    })
+    .then(function(response) {
+        console.log(response);
+        const name = response.addEmployee;
+        const fullName = name.split(" ");
+        console.log(fullName)
+        const query = "INSERT INTO employee (first_name, last_name) VALUES ?"
+        connection.query(query, [[fullName]], function(err, data) {
+            if (err) throw err
+        })
+        showOptions()
+    })
+}
+
+
+
+
+
+
+// const addEmployees = (first_name, last_name, role_id, manager_id) => { 
+//     return this.connection.query("INSERT INTO employee SET ?",{
+//         first_name: first_name,
+//         last_name: last_name,
+//         role_id: role_id,
+//         manager_id: manager_id,     
+//     })
     
-    }
-
-
-// function viewAllEmployees() {
-//     connection.query(`SELECT * FROM employee`, function(err, res) {
-//         if(err) throw err;
-//             console.table(res);
-//             showOptions();
-//     });
-// }
-
-
-// function viewAllDepartments() {
-//     connection.query(`SELECT * FROM department`, (err, res) => {
-//         if(err) throw err;
-//             console.table(res);
-//             showOptions();
-//     });
 // };
 
-// function viewAllRoles() {
-//     connection.query(`SELECT * FROM roles`, (err, res) => {
-//         if(err) throw err;
-//             console.table(res);
-//             showOptions();
-//     });
+
+//     const addEmployees = () => {
+//         inquirer.prompt({
+//             type: "input",
+//             name: "Employee Name",
+//             message: "Please enter new employee's first and last name"
+//         })
+
+//     .then (function(response) {
+//         console.log(response);
+//         const fullName = response.addEmployees;
+//         const firstAndLastName = fullName.split(" ");
+//         console.log(firstAndLastName)
+//     })
+// };
+    // let managerId;
+    // if (showResponse.manager !== "none") {
+    //     const managerFound = employee.find (
+    //         results =>
+    //         showResponse.manager === results.first_name + " " + results.lastName
+    //     );
+    //     managerId = managerFound.id;
+    // };
+
+    // const roleData = role.find (
+    //     results => results.title === showResponse.role
+    // );
+    //     const roleId = roleData.id;
+    //     await connection.addEmployees(results.firstName, results.lastName, roleId, managerId)
+
+    //     console.log(`${results.firstName} + '' ${results.lastName} has been addded to the employee databse`)
+
+    // }
+
+
+
+
+        //     try {
+//      let query = "SELECT * FROM roles"
+//      connection.query(query, function (err, data) {
+//          if (err) throw err;
+//          inquirer.prompt ([
+//              {
+//                  type: "input",
+//                  name: "firstName",
+//                  message: "Please enter new employee's first name."
+//              },
+//              {
+//                 type: "input",
+//                 name: "lastName",
+//                 message: "Please enter new employee's last name."
+//             },
+//             {
+//                 type: "list",
+//                 name: "title",
+//                 message: "Please enter new employee's title.",
+//                 choices() {
+//                     const titleArr = [];
+//                     response.forEach(({title}) => {
+//                         titleArr.push (title);
+//                     })
+//                     return titleArr;
+//                 }
+//             },
+//         ])
+
+//         .then()
+//     }
 // }
+        
+    
+    
+        
+
+    
+    
+    
+    
+    
+    
+    
+        
+    // response = await inquirer.prompt ({
+    //     name: "addEmployees",
+    //     type: "input",
+    //     message: "Enter Employee First then Last Name"
+    //   })
+    // }
+
+
+    
+    //     .then(response) => {
+    //      const name = response.addEmployees;
+    //     const firstNameLastName = name.split(" ");
+    //     let query = "INSERT INTO employee (first_name, last_name) VALUES?"
+    //     connection.query(query [[firstNameLastName]], function (err, res) {
+    //        console.table (name)
+    //        showOptions()
+    //     })
+      
+
+    // }
 
 
 
+
+
+
+ // {
+        //     type: "input",
+        //     name: "lastName",
+        //     message: "Please enter new employee's last name"
+        // },
+        // {
+        //     type: "list",
+        //     name: "role",
+        //     message: "Please enter new employee's new role",
+        //     choices: [
+        //         'Manager',
+        //         'Payroll',
+        //         'Accounting',
+        //         'Manager',
+        //         'Head Salesperson',
+        //         'Salesperson',
+        //         'Manager', 
+        //         'Developer',
+        //         'Digital Merchandiser',
+        //         'Manager',
+        //         'Customer Service Supervisor',  
+        //         'Customer Service Rep' 
+        //     ]
+        // },
+    
+// const addEmployees = async () => {
+//     const role = await connection.viewAllRoles();
+//     const allRoles = role.map(record => {
+//         return record.title;
+
+//     })
+
+//     const employee = await connection.viewAllEmployees();
+//     const allEmployees = employee.map(record => {
+//         return record.first_name.concat(" " + record.last_name);
+//     })
+//     employeeList.unshift("None");
 
