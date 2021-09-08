@@ -32,6 +32,15 @@ THEN I am prompted to enter the employee’s first name, last name, role, and ma
 WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 ```
+## Technologies Used
+
+```md
+1. Javascript
+2. Node.js
+3. NPM
+4. Inquirer
+5. MYSQL2
+
 
 [employee-system-2.mov.zip](https://github.com/Kanema2021/employee-management/files/7125199/employee-system-2.mov.zip)
 
