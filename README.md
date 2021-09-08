@@ -40,7 +40,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 3. NPM
 4. Inquirer
 5. MYSQL2
-
+```
 
 [employee-system-2.mov.zip](https://github.com/Kanema2021/employee-management/files/7125199/employee-system-2.mov.zip)
 
