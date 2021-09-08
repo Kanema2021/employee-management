@@ -32,6 +32,6 @@ THEN I am prompted to enter the employee’s first name, last name, role, and ma
 WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 ```
-
+[employee-1.mov.zip](https://github.com/Kanema2021/employee-management/files/7125189/employee-1.mov.zip)
 
 https://user-images.githubusercontent.com/82725636/132432529-68b5bffb-a7c6-436f-ab47-6eddf40ec925.mov
