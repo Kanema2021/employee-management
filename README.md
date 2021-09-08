@@ -1,4 +1,3 @@
-# employee-management
 
 # employment-management-system
 Homework 12
