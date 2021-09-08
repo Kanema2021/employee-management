@@ -98,7 +98,8 @@ const viewAllDepartments = async () => {
             showOptions();
         })
     } catch (err) {
-        console.log(err);
+        console.log
+        (err);
        
     }
 };
@@ -200,7 +201,7 @@ const addEmployees = () => {
     
         ]).then(function (data) {
             connection.query(
-                "UPDATE employee SET role_id=? WHERE first_name=?", 
+                "UPDATE employee SET role_id=? WHERE first_name=? AND last_name=? ", 
                 [data.newRole, data.first_name, data.last_name], 
                 function(err, res) {
                     if (err) throw err

@@ -16,7 +16,7 @@ VALUES
     ('Manager', 65000, 2),
     ('Head Salesperson', 55000, 2),
     ('Salesperson', 50000, 2),
-    ('Manager', 90000, 3),
+    
     ('Developer', 85000, 3),
     ('Digital Merchandiser', 65000, 3),
     ('Manager', 50000, 4),
