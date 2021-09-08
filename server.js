@@ -26,6 +26,7 @@ const showOptions = async () => {
                 "View all Roles",
                 "Add a Role",
                 "Add an Employee",
+                "Add a Department",
                 "Update Employee's Role",
                 "Exit"
             ]
@@ -178,10 +179,35 @@ const addEmployees = () => {
         ]).then(function (data) {
             connection.query(
                 "INSERT INTO roles(title, salary, department_id) VALUES (?, ?, ?)", 
-                [data.title, data.salary, data.departmentId], 
+                [data.roleName, data.salary, data.departmentId], 
                 function(err, res) {
                     if (err) throw err
                     console.log("You have successfully added a new role!");
+                    showOptions()
+                })      
+        });
+    }
+    const addDepartment = () => {
+        return inquirer.prompt([
+            {
+                name: "deptName",
+                type: "input",
+                message: "Please enter the new department name."
+            },
+            {
+                name: "deptId",
+                type: "number",
+                message: "Please enter new department's id."
+            },
+            
+    
+        ]).then(function (data) {
+            connection.query(
+                "INSERT INTO department(department_name, id) VALUES (?, ?)", 
+                [data.deptName, data.deptId], 
+                function(err, res) {
+                    if (err) throw err
+                    console.log("You have successfully added a new department");
                     showOptions()
                 })      
         });
@@ -194,6 +220,11 @@ const addEmployees = () => {
                 message: "Please enter the first name of employee."
             },
             {
+                name: "lastName",
+                type: "input",
+                message: "Please enter the last name of employee."
+            },
+            {
                 name: "newRole",
                 type: "number",
                 message: "Please enter employee's new role ID."
@@ -202,7 +233,7 @@ const addEmployees = () => {
         ]).then(function (data) {
             connection.query(
                 "UPDATE employee SET role_id=? WHERE first_name=? AND last_name=? ", 
-                [data.newRole, data.first_name, data.last_name], 
+                [data.newRole, data.firstName, data.lastName], 
                 function(err, res) {
                     if (err) throw err
                     console.log("You have successfully changed employee's role");
