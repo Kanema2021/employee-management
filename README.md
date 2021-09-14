@@ -40,9 +40,8 @@ THEN I am prompted to select an employee to update and their new role and this i
 4. Inquirer
 5. MYSQL2
 ```
+https://vimeo.com/605081548
 
 https://vimeo.com/605077975
-
-https://vimeo.com/605081548
 
 https://user-images.githubusercontent.com/82725636/132432529-68b5bffb-a7c6-436f-ab47-6eddf40ec925.mov
