@@ -1,6 +1,5 @@
-# employee-management
 
-# employment-management-system
+# employee-management-system
 Homework 12
 
 ## User Story
@@ -30,5 +29,19 @@ THEN I am prompted to enter the name, salary, and department for the role and th
 WHEN I choose to add an employee
 THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
 WHEN I choose to update an employee role
-THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
+THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 ```
+## Technologies Used
+
+```md
+1. Javascript
+2. Node.js
+3. NPM
+4. Inquirer
+5. MYSQL2
+```
+https://vimeo.com/605081548
+
+https://vimeo.com/605077975
+
+https://vimeo.com/605098090
